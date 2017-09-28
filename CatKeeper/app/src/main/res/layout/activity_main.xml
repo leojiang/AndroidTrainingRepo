@@ -3,12 +3,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.tw.training.catkeeper.activity.MainActivity">
 
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="@dimen/ui_size_180">
 
     </android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ui_size_80"
+        android:background="@color/paleGrey"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingEnd="@dimen/ui_size_32"
+        android:paddingStart="@dimen/ui_size_32">
+
+        <TextView
+            android:id="@+id/left_tab"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/ui_size_32"
+            android:layout_weight="1"
+            android:background="@drawable/tab_left_bg_selector"
+            android:clickable="true"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="@string/btn_txt_cats_nearby"
+            android:textColor="@drawable/tab_text_selector"
+            android:textSize="@dimen/text_size_14" />
+
+        <TextView
+            android:id="@+id/right_tab"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/ui_size_32"
+            android:layout_weight="1"
+            android:background="@drawable/tab_right_bg_selector"
+            android:clickable="true"
+            android:enabled="true"
+            android:gravity="center"
+            android:text="@string/btn_txt_cats_nearby"
+            android:textColor="@drawable/tab_text_selector"
+            android:textSize="@dimen/text_size_14" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -3,5 +3,10 @@ package com.tw.training.catkeeper.presenter
 /**
  * Created by yhjiang on 26/09/2017.
  */
-class NearybyCatPresenter: NearbyCatContract.Presenter {
+class NearybyCatPresenter : NearbyCatContract.Presenter {
+    override fun onStart() {
+    }
+
+    override fun onStop() {
+    }
 }
