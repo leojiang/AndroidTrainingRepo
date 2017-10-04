@@ -12,7 +12,7 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.tw.training.catkeeper.R
-import com.tw.training.catkeeper.adapter.MyPagerAdapter
+import com.tw.training.catkeeper.adapter.BannerAdapter
 import com.tw.training.catkeeper.presenter.MainContract
 import com.tw.training.catkeeper.presenter.MainPresenter
 import com.tw.training.catkeeper.Utils.ViewPagerScroller
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageCha
             mViewContainer.add(view)
         }
 
-        mViewPager.adapter = MyPagerAdapter(mViewContainer)
+        mViewPager.adapter = BannerAdapter(mViewContainer)
         mViewPager.addOnPageChangeListener(this)
         mViewPager.currentItem = 1000
 

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 
-class MyPagerAdapter(private val imageList: List<ImageView>) : PagerAdapter() {
+class BannerAdapter(private val imageList: List<ImageView>) : PagerAdapter() {
 
     override fun getCount(): Int {
         return Integer.MAX_VALUE
