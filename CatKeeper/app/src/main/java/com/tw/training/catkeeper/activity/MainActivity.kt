@@ -1,5 +1,6 @@
 package com.tw.training.catkeeper.activity
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.view.ViewPager
@@ -12,13 +13,14 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.tw.training.catkeeper.R
+import com.tw.training.catkeeper.Utils.ViewPagerScroller
 import com.tw.training.catkeeper.adapter.BannerAdapter
 import com.tw.training.catkeeper.presenter.MainContract
 import com.tw.training.catkeeper.presenter.MainPresenter
-import com.tw.training.catkeeper.Utils.ViewPagerScroller
 
 class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageChangeListener {
-    private val MSG_WHAT = 0
+    private val message = 0
+    private val interval = 4000L
 
     @BindView(R.id.left_tab)
     lateinit var mLeftTab: TextView
@@ -30,7 +32,7 @@ class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageCha
     lateinit var mViewPager: ViewPager
 
     @BindView(R.id.indicator)
-    lateinit var mIndicator : ViewGroup
+    lateinit var mIndicator: ViewGroup
 
     private var imageResIds = arrayOf(R.mipmap.cat_1, R.mipmap.cat_2, R.mipmap.cat_3, R.mipmap.cat_4)
 
@@ -50,12 +52,12 @@ class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageCha
 
     override fun onResume() {
         super.onResume()
-        handler.sendEmptyMessageDelayed(MSG_WHAT, 2000)
+        handler.sendEmptyMessageDelayed(message, interval)
     }
 
     override fun onStop() {
         super.onStop()
-        handler.removeMessages(MSG_WHAT);
+        handler.removeMessages(message)
     }
 
     override fun onDestroy() {
@@ -81,7 +83,7 @@ class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageCha
     }
 
     private fun setupViewPager() {
-        val mViewContainer = java.util.ArrayList<ImageView>()
+        val mViewContainer = ArrayList<ImageView>()
         for (i in 0 until imageResIds.size) {
             val view = LayoutInflater.from(this).inflate(R.layout.viewpager_item, null) as ImageView
             view.setImageResource(imageResIds[i])
@@ -115,11 +117,11 @@ class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageCha
         dot.setImageResource(R.drawable.dot_bg_green)
     }
 
-    private val handler = object : Handler() {
+    private val handler = @SuppressLint("HandlerLeak")
+    object : Handler() {
         override fun handleMessage(msg: android.os.Message) {
-            mViewPager.currentItem = mViewPager.currentItem + 1
-            this.sendEmptyMessageDelayed(MSG_WHAT, 4000)
+            mViewPager.currentItem++
+            sendEmptyMessageDelayed(message, interval)
         }
     }
-
 }
