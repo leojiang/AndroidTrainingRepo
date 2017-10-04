@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -86,6 +85,7 @@ class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageCha
         //create ImageView for each image resource
         val mViewContainer = ArrayList<ImageView>()
         for (i in 0 until mImageResIds.size) {
+            // Compare to XML, we cal also create View with code
             val view = ImageView(this)
             view.scaleType = ImageView.ScaleType.FIT_XY
             view.setImageResource(mImageResIds[i])
@@ -119,6 +119,7 @@ class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageCha
 
     }
 
+    // Inherit from Handler and create an instance
     private val handler = @SuppressLint("HandlerLeak")
     object : Handler() {
         override fun handleMessage(msg: android.os.Message) {
