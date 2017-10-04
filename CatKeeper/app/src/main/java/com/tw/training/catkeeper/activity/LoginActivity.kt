@@ -10,17 +10,17 @@ import android.view.Window
 import com.tw.training.catkeeper.R
 import com.tw.training.catkeeper.Utils.KeyboardWatcher
 
-
 class LoginActivity : AppCompatActivity(), KeyboardWatcher.SoftKeyboardStateListener {
-    private lateinit var mBtnLogin: View
-    private lateinit var mLogoLayout: View
-    private lateinit var keyboardWatcher: KeyboardWatcher
-
-    private lateinit var mContent: View
-    private var screenHeight = 0
     private val scale = 0.8f
     private val alpha = 0.3f
     private val duration = 200L
+
+    private var screenHeight = 0
+
+    private lateinit var mBtnLogin: View
+    private lateinit var mLogoLayout: View
+    private lateinit var mContent: View
+    private lateinit var keyboardWatcher: KeyboardWatcher
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,10 +31,10 @@ class LoginActivity : AppCompatActivity(), KeyboardWatcher.SoftKeyboardStateList
         mContent = findViewById(R.id.content)
 
         screenHeight = resources.displayMetrics.heightPixels
-
         keyboardWatcher = KeyboardWatcher(findViewById(Window.ID_ANDROID_CONTENT))
         keyboardWatcher.addSoftKeyboardStateListener(this)
 
+        // launch MainActivity
         mBtnLogin.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
     }
 
@@ -68,6 +68,7 @@ class LoginActivity : AppCompatActivity(), KeyboardWatcher.SoftKeyboardStateList
     private fun zoomIn(view: View, dist: Float) {
         view.pivotY = view.height.toFloat()
         view.pivotX = (view.width / 2).toFloat()
+
         val mAnimatorSet = AnimatorSet()
         val mAnimatorScaleX = ObjectAnimator.ofFloat(view, "scaleX", 1.0f, scale)
         val mAnimatorScaleY = ObjectAnimator.ofFloat(view, "scaleY", 1.0f, scale)
@@ -80,12 +81,9 @@ class LoginActivity : AppCompatActivity(), KeyboardWatcher.SoftKeyboardStateList
     }
 
     private fun zoomOut(view: View) {
-        if (view.translationY == 0f) {
-            return
-        }
-
         view.pivotY = view.height.toFloat()
         view.pivotX = (view.width / 2).toFloat()
+
         val mAnimatorSet = AnimatorSet()
         val mAnimatorScaleX = ObjectAnimator.ofFloat(view, "scaleX", scale, 1.0f)
         val mAnimatorScaleY = ObjectAnimator.ofFloat(view, "scaleY", scale, 1.0f)
