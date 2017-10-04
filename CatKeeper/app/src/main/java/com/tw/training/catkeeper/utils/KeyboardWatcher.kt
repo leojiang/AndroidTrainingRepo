@@ -1,4 +1,4 @@
-package com.tw.training.catkeeper.Utils
+package com.tw.training.catkeeper.utils
 
 import android.app.Activity
 import android.graphics.Rect
