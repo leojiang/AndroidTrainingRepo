@@ -34,20 +34,20 @@ class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageCha
     @BindView(R.id.indicator)
     lateinit var mIndicator: ViewGroup
 
-    private var imageResIds = arrayOf(R.mipmap.cat_1, R.mipmap.cat_2, R.mipmap.cat_3, R.mipmap.cat_4)
+    private var mImageResIds = arrayOf(R.mipmap.cat_1, R.mipmap.cat_2, R.mipmap.cat_3, R.mipmap.cat_4)
 
-    private var presenter: MainContract.Presenter = MainPresenter(this)
+    private var mPresenter: MainContract.Presenter = MainPresenter(this)
 
-    private var previousPosition = 0
+    private var mPrePosition = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-        ButterKnife.bind(this@MainActivity)
+        ButterKnife.bind(this)
 
         setupViewPager()
-        presenter.onStart()
+        mPresenter.onStart()
     }
 
     override fun onResume() {
@@ -62,15 +62,15 @@ class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageCha
 
     override fun onDestroy() {
         super.onDestroy()
-        presenter.onStop()
+        mPresenter.onStop()
     }
 
     @OnClick(R.id.left_tab)
-    fun onLeftTabClicked() = presenter.switchToNearbyCat()
+    fun onLeftTabClicked() = mPresenter.switchToNearbyCat()
 
 
     @OnClick(R.id.right_tab)
-    fun onRightTabClicked() = presenter.switchToMyCat()
+    fun onRightTabClicked() = mPresenter.switchToMyCat()
 
     override fun switchToNearbyCat() {
         mRightTab.isEnabled = true
@@ -83,19 +83,22 @@ class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageCha
     }
 
     private fun setupViewPager() {
+        //create ImageView for each image resource
         val mViewContainer = ArrayList<ImageView>()
-        for (i in 0 until imageResIds.size) {
-            val view = LayoutInflater.from(this).inflate(R.layout.viewpager_item, null) as ImageView
-            view.setImageResource(imageResIds[i])
+        for (i in 0 until mImageResIds.size) {
+            val view = ImageView(this)
+            view.scaleType = ImageView.ScaleType.FIT_XY
+            view.setImageResource(mImageResIds[i])
             mViewContainer.add(view)
         }
 
+        // set ViewPager fields
         mViewPager.adapter = BannerAdapter(mViewContainer)
         mViewPager.addOnPageChangeListener(this)
         mViewPager.currentItem = 1000
 
-        val pagerScroller = ViewPagerScroller(this)
-        pagerScroller.initViewPagerScroll(mViewPager)
+        // use ViewPagerScroller to control animation speed
+        ViewPagerScroller(this).initViewPagerScroll(mViewPager)
     }
 
     override fun onPageScrollStateChanged(p0: Int) {
@@ -105,16 +108,15 @@ class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageCha
     }
 
     override fun onPageSelected(position: Int) {
-        val newPosition = position % imageResIds.size
-        updateIndicator(previousPosition, newPosition)
-        previousPosition = newPosition
+        val newPosition = position % mImageResIds.size
+        updateIndicator(mPrePosition, newPosition)
+        mPrePosition = newPosition
     }
 
     private fun updateIndicator(pre: Int, now: Int) {
-        var dot = mIndicator.getChildAt(pre) as ImageView
-        dot.setImageResource(R.drawable.dot_bg_white)
-        dot = mIndicator.getChildAt(now) as ImageView
-        dot.setImageResource(R.drawable.dot_bg_green)
+        (mIndicator.getChildAt(pre) as ImageView).setImageResource(R.drawable.dot_bg_white)
+        (mIndicator.getChildAt(now) as ImageView).setImageResource(R.drawable.dot_bg_green)
+
     }
 
     private val handler = @SuppressLint("HandlerLeak")
