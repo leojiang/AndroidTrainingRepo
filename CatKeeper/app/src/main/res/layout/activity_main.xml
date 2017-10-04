@@ -6,11 +6,50 @@
     android:orientation="vertical"
     tools:context="com.tw.training.catkeeper.activity.MainActivity">
 
-    <android.support.v4.view.ViewPager
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/ui_size_180">
+        android:layout_height="@dimen/ui_size_200">
 
-    </android.support.v4.view.ViewPager>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/ad_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+        <LinearLayout
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/ui_size_16"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/ui_size"
+                android:layout_height="@dimen/ui_size"
+                android:src="@drawable/dot_bg_green" />
+
+            <ImageView
+                android:layout_width="@dimen/ui_size"
+                android:layout_height="@dimen/ui_size"
+                android:layout_marginStart="@dimen/ui_size_22"
+                android:src="@drawable/dot_bg_white" />
+
+            <ImageView
+                android:layout_width="@dimen/ui_size"
+                android:layout_height="@dimen/ui_size"
+                android:layout_marginStart="@dimen/ui_size_22"
+                android:src="@drawable/dot_bg_white" />
+
+            <ImageView
+                android:layout_width="@dimen/ui_size"
+                android:layout_height="@dimen/ui_size"
+                android:layout_marginStart="@dimen/ui_size_22"
+                android:src="@drawable/dot_bg_white" />
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,7 +82,7 @@
             android:clickable="true"
             android:enabled="true"
             android:gravity="center"
-            android:text="@string/btn_txt_cats_nearby"
+            android:text="@string/btn_txt_my_cat"
             android:textColor="@drawable/tab_text_selector"
             android:textSize="@dimen/text_size_14" />
     </LinearLayout>
