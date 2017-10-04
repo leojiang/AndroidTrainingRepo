@@ -1,4 +1,4 @@
-package com.tw.training.catkeeper.Utils
+package com.tw.training.catkeeper.utils
 
 import android.content.Context
 import android.support.v4.view.ViewPager
@@ -38,4 +38,4 @@ class ViewPagerScroller : Scroller {
         }
 
     }
-}  
+}

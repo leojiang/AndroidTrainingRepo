@@ -12,7 +12,7 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.tw.training.catkeeper.R
-import com.tw.training.catkeeper.Utils.ViewPagerScroller
+import com.tw.training.catkeeper.utils.ViewPagerScroller
 import com.tw.training.catkeeper.adapter.BannerAdapter
 import com.tw.training.catkeeper.presenter.MainContract
 import com.tw.training.catkeeper.presenter.MainPresenter
