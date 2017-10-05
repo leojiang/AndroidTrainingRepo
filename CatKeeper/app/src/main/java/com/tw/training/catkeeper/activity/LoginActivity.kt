@@ -32,6 +32,7 @@ class LoginActivity : AppCompatActivity(), KeyboardWatcher.SoftKeyboardStateList
         // launch MainActivity
         mBtnLogin.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 

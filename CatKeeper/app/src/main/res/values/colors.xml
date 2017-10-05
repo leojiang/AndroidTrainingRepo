@@ -6,8 +6,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="paleGrey">#F0F0F0</color>
     <color name="gray">#CCCCCC</color>
+    <color name="darkGray">#969696</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlueGreenTranslucent">#445cd6d6</color>
+    <color name="shallowBlueGreen">#adebeb</color>
     <color name="colorBlueGreen">#5cd6d6</color>
     <color name="colorBlueGreenDark">#33cccc</color>
 </resources>

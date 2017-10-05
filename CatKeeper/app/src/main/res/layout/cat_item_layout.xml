@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:clickable="true"
+    android:background="@drawable/cat_item_bg_selector"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:id="@id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/ui_size_16">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/avatar"
+            android:layout_alignTop="@+id/avatar"
+            android:layout_marginLeft="@dimen/ui_size_15"
+            android:layout_toRightOf="@+id/avatar"
+            android:gravity="center_vertical"
+            android:text="Kitty"
+            android:textSize="@dimen/text_size_14"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/avatar"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/avatar"
+            android:gravity="center_vertical"
+            android:text="5 minutes ago"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/text_size_12" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/name"
+            android:layout_below="@+id/name"
+            android:layout_marginTop="@dimen/ui_size_10"
+            android:text="Finally I have my cat" />
+
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="@dimen/ui_size_90"
+            android:layout_height="@dimen/ui_size_90"
+            android:layout_alignLeft="@+id/name"
+            android:layout_below="@+id/description"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/image2"
+            android:layout_width="@dimen/ui_size_90"
+            android:layout_height="@dimen/ui_size_90"
+            android:layout_below="@+id/description"
+            android:layout_marginLeft="@dimen/text_size_12"
+            android:layout_toRightOf="@+id/image1"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/image3"
+            android:layout_width="@dimen/ui_size_90"
+            android:layout_height="@dimen/ui_size_90"
+            android:layout_below="@+id/description"
+            android:layout_marginLeft="@dimen/text_size_12"
+            android:layout_toRightOf="@+id/image2"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/content"
+        android:background="@color/gray" />
+</RelativeLayout>

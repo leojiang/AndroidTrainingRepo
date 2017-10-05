@@ -6,6 +6,7 @@
     <dimen name="ui_size_32">32dp</dimen>
     <dimen name="ui_size_70">70dp</dimen>
     <dimen name="ui_size_90">90dp</dimen>
+    <dimen name="ui_size_92">92dp</dimen>
     <dimen name="ui_size_50">50dp</dimen>
     <dimen name="ui_size_40">40dp</dimen>
     <dimen name="ui_size_30">30dp</dimen>
@@ -13,6 +14,7 @@
     <dimen name="ui_size_36">36dp</dimen>
     <dimen name="ui_size_18">18dp</dimen>
     <dimen name="ui_size_25">25dp</dimen>
+    <dimen name="ui_size_minus_25">-25dp</dimen>
     <dimen name="ui_size_22">22dp</dimen>
     <dimen name="ui_size_15">15dp</dimen>
     <dimen name="ui_size_16">16dp</dimen>
@@ -20,10 +22,15 @@
     <dimen name="ui_size_4">4dp</dimen>
     <dimen name="ui_size_10">10dp</dimen>
     <dimen name="ui_size_8">10dp</dimen>
+    <dimen name="ui_size_24">24dp</dimen>
+    <dimen name="ui_size_250">250dp</dimen>
+    <dimen name="ui_size_106">106dp</dimen>
+    <dimen name="ui_size_minus_53">-53dp</dimen>
 
     <dimen name="text_size_30">30sp</dimen>
     <dimen name="text_size_22">22sp</dimen>
     <dimen name="text_size_14">14sp</dimen>
     <dimen name="text_size_16">16sp</dimen>
     <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
 </resources>

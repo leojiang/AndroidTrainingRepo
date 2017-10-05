@@ -1,9 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/paleGrey"
     tools:context="com.tw.training.catkeeper.activity.CatDetailActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/cat_5" />
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="@dimen/ui_size_106"
+        android:layout_height="@dimen/ui_size_106"
+        android:layout_below="@+id/background"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/ui_size_minus_53"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/signature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/avatar"
+        android:layout_marginTop="@dimen/ui_size_minus_25"
+        android:gravity="center"
+        android:text="I'm thinking, not sleeping."
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_18" />
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/avatar"
+        android:layout_marginTop="@dimen/ui_size_10"
+        android:gravity="center"
+        android:text="6 years old | American Shorthair"
+        android:textColor="@color/darkGray"
+        android:textSize="@dimen/text_size_12" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info"
+        android:layout_marginLeft="@dimen/ui_size_24"
+        android:layout_marginRight="@dimen/ui_size_24"
+        android:layout_marginTop="@dimen/ui_size_18">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="@dimen/ui_size_6"
+            android:drawableTop="@mipmap/star"
+            android:gravity="center"
+            android:text="389 stars"
+            android:textSize="@dimen/text_size_12" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="@dimen/ui_size_6"
+            android:drawableTop="@mipmap/follow"
+            android:gravity="center"
+            android:text="39 followers"
+            android:textSize="@dimen/text_size_12" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="@dimen/ui_size_6"
+            android:drawableTop="@mipmap/fish"
+            android:gravity="center"
+            android:text="99 fishes"
+            android:textSize="@dimen/text_size_12" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="@dimen/ui_size_6"
+            android:drawableTop="@mipmap/adopted"
+            android:gravity="center"
+            android:text="15 adopted"
+            android:textSize="@dimen/text_size_12" />
+    </LinearLayout>
+</RelativeLayout>
