@@ -2,6 +2,8 @@ package com.tw.training.catkeeper.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
+import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -57,6 +59,7 @@ class NearbyCatFragment : BaseFragment(), CatListAdapter.OnItemClickedListener {
     }
 
     override fun onItemClicked(view: View, position: Int) {
-        startActivity(Intent(activity, CatDetailActivity::class.java))
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, view.findViewById(R.id.avatar), "avatar_transition")
+        ActivityCompat.startActivity(activity, Intent(activity, CatDetailActivity::class.java), options.toBundle())
     }
 }
