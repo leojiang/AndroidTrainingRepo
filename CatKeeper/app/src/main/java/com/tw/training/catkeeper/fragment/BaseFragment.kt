@@ -11,7 +11,7 @@ abstract class BaseFragment : Fragment() {
     private var mRootView: View? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        if (mRootView == null) {
+        if(mRootView == null) {
             mRootView = createView(inflater)
         }
 

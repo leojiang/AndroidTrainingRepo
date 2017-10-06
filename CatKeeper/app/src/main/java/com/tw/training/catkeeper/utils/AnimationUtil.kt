@@ -7,7 +7,7 @@ import android.view.View
 object AnimationUtil {
     private val SCALE_RATIO = 0.8f
     private val ALPHA_RATIO = 0.3f
-    private val DURATION= 200L
+    private val DURATION = 200L
 
     fun moveContentUp(view: View, dist: Float) {
         val mAnimatorTranslateY = ObjectAnimator.ofFloat(view, "translationY", 0.0f, -dist)

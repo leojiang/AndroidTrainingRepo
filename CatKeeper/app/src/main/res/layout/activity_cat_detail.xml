@@ -13,14 +13,14 @@
         android:scaleType="fitXY"
         android:src="@mipmap/cat_5" />
 
-    <ImageView
+    <com.tw.training.catkeeper.view.CircleImageView
         android:id="@+id/avatar"
         android:layout_width="@dimen/ui_size_106"
         android:layout_height="@dimen/ui_size_106"
-        android:layout_below="@+id/background"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/ui_size_minus_53"
-        android:src="@mipmap/ic_launcher_round" />
+        android:layout_marginTop="199dp"
+        android:src="@mipmap/cat_avatar"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/signature"

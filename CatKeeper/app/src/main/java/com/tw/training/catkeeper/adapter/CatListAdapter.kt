@@ -21,7 +21,7 @@ class CatListAdapter(context: Context, private val data: List<Cat>) : RecyclerVi
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
-        if (holder == null) {
+        if(holder == null) {
             return
         }
 

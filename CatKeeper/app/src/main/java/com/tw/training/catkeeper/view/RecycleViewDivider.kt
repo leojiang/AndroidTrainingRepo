@@ -15,7 +15,7 @@ class RecycleViewDivider(private val mOrientation: Int) : RecyclerView.ItemDecor
     private var mDividerHeight = 2
 
     init {
-        if (mOrientation != LinearLayoutManager.VERTICAL && mOrientation != LinearLayoutManager.HORIZONTAL) {
+        if(mOrientation != LinearLayoutManager.VERTICAL && mOrientation != LinearLayoutManager.HORIZONTAL) {
             throw IllegalArgumentException("please give correct parameters！")
         }
     }
@@ -38,10 +38,9 @@ class RecycleViewDivider(private val mOrientation: Int) : RecyclerView.ItemDecor
         outRect.set(0, 0, 0, mDividerHeight)
     }
 
-    //绘制分割线
     override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State?) {
         super.onDraw(c, parent, state)
-        if (mOrientation == LinearLayoutManager.VERTICAL) {
+        if(mOrientation == LinearLayoutManager.VERTICAL) {
             drawVertical(c, parent)
         } else {
             drawHorizontal(c, parent)
@@ -52,16 +51,16 @@ class RecycleViewDivider(private val mOrientation: Int) : RecyclerView.ItemDecor
         val left = parent.paddingLeft
         val right = parent.measuredWidth - parent.paddingRight
         val childSize = parent.childCount
-        for (i in 0 until childSize) {
+        for(i in 0 until (childSize - 1)) {
             val child = parent.getChildAt(i)
             val layoutParams = child.layoutParams as RecyclerView.LayoutParams
             val top = child.bottom + layoutParams.bottomMargin
             val bottom = top + mDividerHeight
-            if (mDivider != null) {
+            if(mDivider != null) {
                 mDivider!!.setBounds(left, top, right, bottom)
                 mDivider!!.draw(canvas)
             }
-            if (mPaint != null) {
+            if(mPaint != null) {
                 canvas.drawRect(left.toFloat(), top.toFloat(), right.toFloat(), bottom.toFloat(), mPaint!!)
             }
         }
@@ -71,16 +70,16 @@ class RecycleViewDivider(private val mOrientation: Int) : RecyclerView.ItemDecor
         val top = parent.paddingTop
         val bottom = parent.measuredHeight - parent.paddingBottom
         val childSize = parent.childCount
-        for (i in 0 until childSize) {
+        for(i in 0 until childSize) {
             val child = parent.getChildAt(i)
             val layoutParams = child.layoutParams as RecyclerView.LayoutParams
             val left = child.right + layoutParams.rightMargin
             val right = left + mDividerHeight
-            if (mDivider != null) {
+            if(mDivider != null) {
                 mDivider!!.setBounds(left, top, right, bottom)
                 mDivider!!.draw(canvas)
             }
-            if (mPaint != null) {
+            if(mPaint != null) {
                 canvas.drawRect(left.toFloat(), top.toFloat(), right.toFloat(), bottom.toFloat(), mPaint!!)
             }
         }

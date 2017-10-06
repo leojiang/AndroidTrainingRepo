@@ -25,16 +25,24 @@ class NearbyCatFragment : BaseFragment(), CatListAdapter.OnItemClickedListener {
     override fun createView(inflater: LayoutInflater): View {
         val view = inflater.inflate(R.layout.fragment_nearby_cat, null)
         ButterKnife.bind(this, view)
+        initRecyclerView()
         return view
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupRecyclerView()
+        setData()
     }
 
-    private fun setupRecyclerView() {
-        var list = ArrayList<Cat>()
+    private fun initRecyclerView() {
+        mCatList.layoutManager = LinearLayoutManager(activity)
+        mCatList.addItemDecoration(RecycleViewDivider(
+                LinearLayoutManager.HORIZONTAL, 30,
+                ContextCompat.getColor(activity, R.color.paleGrey)))
+    }
+
+    private fun setData() {
+        val list = ArrayList<Cat>()
         list.add(Cat("QIQI"))
         list.add(Cat("QIQI"))
         list.add(Cat("QIQI"))
@@ -45,13 +53,6 @@ class NearbyCatFragment : BaseFragment(), CatListAdapter.OnItemClickedListener {
         list.add(Cat("QIQI"))
         mAdapter = CatListAdapter(activity, list)
         mAdapter.onItemClickedListener = this
-        var layoutManager = LinearLayoutManager(activity)
-
-        mCatList.layoutManager = layoutManager
-        mCatList.addItemDecoration(RecycleViewDivider(
-                LinearLayoutManager.HORIZONTAL,
-                30,
-                ContextCompat.getColor(activity, R.color.paleGrey)))
         mCatList.adapter = mAdapter
     }
 

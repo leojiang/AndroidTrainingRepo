@@ -12,13 +12,12 @@ class ViewPagerScroller : Scroller {
         this.mScrollDuration = duration
     }
 
-    constructor(context: Context) : super(context) {}
+    constructor(context: Context) : super(context)
 
-    constructor(context: Context, interpolator: Interpolator) : super(context, interpolator) {}
+    constructor(context: Context, interpolator: Interpolator) : super(context, interpolator)
 
     constructor(context: Context, interpolator: Interpolator,
-                flywheel: Boolean) : super(context, interpolator, flywheel) {
-    }
+                flywheel: Boolean) : super(context, interpolator, flywheel)
 
     override fun startScroll(startX: Int, startY: Int, dx: Int, dy: Int, duration: Int) {
         super.startScroll(startX, startY, dx, dy, mScrollDuration)
@@ -33,7 +32,7 @@ class ViewPagerScroller : Scroller {
             val mScroller = ViewPager::class.java.getDeclaredField("mScroller")
             mScroller.isAccessible = true
             mScroller.set(viewPager, this)
-        } catch (e: Exception) {
+        } catch(e: Exception) {
             e.printStackTrace()
         }
 

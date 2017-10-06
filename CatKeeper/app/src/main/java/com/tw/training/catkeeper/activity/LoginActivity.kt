@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity(), KeyboardWatcher.SoftKeyboardStateList
         mContent.getLocationOnScreen(location)
         val bottom = screenHeight - (location[1] + mContent.height)
 
-        if (keyboardHeightInPx > bottom) {
+        if(keyboardHeightInPx > bottom) {
             val dist = (keyboardHeightInPx - bottom).toFloat()
 
             AnimationUtil.moveContentUp(mContent, dist)

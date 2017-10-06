@@ -34,7 +34,7 @@ class KeyboardWatcher @JvmOverloads constructor(private val activityRootView: Vi
     init {
         activityRootView.viewTreeObserver.addOnGlobalLayoutListener(this)
         val resourceId = activityRootView.context.resources.getIdentifier("status_bar_height", "dimen", "android")
-        if (resourceId > 0) {
+        if(resourceId > 0) {
             statusBarHeight = activityRootView.context.resources.getDimensionPixelSize(resourceId)
         }
     }
@@ -44,15 +44,15 @@ class KeyboardWatcher @JvmOverloads constructor(private val activityRootView: Vi
         activityRootView.getWindowVisibleDisplayFrame(r)
 
         val heightDiff = activityRootView.rootView.height - (r.bottom - r.top)
-        if (!isSoftKeyboardOpened && heightDiff > activityRootView.rootView.height / 4) {
+        if(!isSoftKeyboardOpened && heightDiff > activityRootView.rootView.height / 4) {
             isSoftKeyboardOpened = true
-            if (activityRootView.context is Activity && !isFullScreen(activityRootView.context as Activity)) {
+            if(activityRootView.context is Activity && !isFullScreen(activityRootView.context as Activity)) {
                 notifyOnSoftKeyboardOpened(heightDiff - statusBarHeight)
             } else {
                 notifyOnSoftKeyboardOpened(heightDiff)
             }
 
-        } else if (isSoftKeyboardOpened && heightDiff < activityRootView.rootView.height / 4) {
+        } else if(isSoftKeyboardOpened && heightDiff < activityRootView.rootView.height / 4) {
             isSoftKeyboardOpened = false
             notifyOnSoftKeyboardClosed()
         }
@@ -69,13 +69,13 @@ class KeyboardWatcher @JvmOverloads constructor(private val activityRootView: Vi
     private fun notifyOnSoftKeyboardOpened(keyboardHeightInPx: Int) {
         lastSoftKeyboardHeightInPx = keyboardHeightInPx
 
-        for (listener in listeners) {
+        for(listener in listeners) {
             listener.onSoftKeyboardOpened(keyboardHeightInPx)
         }
     }
 
     private fun notifyOnSoftKeyboardClosed() {
-        for (listener in listeners) {
+        for(listener in listeners) {
             listener.onSoftKeyboardClosed()
         }
     }
