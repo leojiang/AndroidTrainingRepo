@@ -74,7 +74,6 @@ class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageCha
 
         mPresenter.onStart()
 
-//        handler.postDelayed({initFragment()}, 100)
         initFragment()
     }
 
@@ -83,8 +82,8 @@ class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageCha
         handler.sendEmptyMessageDelayed(message, interval)
     }
 
-    override fun onStop() {
-        super.onStop()
+    override fun onPause() {
+        super.onPause()
         handler.removeMessages(message)
     }
 
