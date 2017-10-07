@@ -3,23 +3,21 @@ package com.tw.training.catkeeper.activity
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.app.FragmentTransaction
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.tw.training.catkeeper.R
-import com.tw.training.catkeeper.utils.ViewPagerScroller
 import com.tw.training.catkeeper.adapter.BannerAdapter
 import com.tw.training.catkeeper.fragment.MyCatFragment
 import com.tw.training.catkeeper.fragment.NearbyCatFragment
 import com.tw.training.catkeeper.presenter.MainContract
 import com.tw.training.catkeeper.presenter.MainPresenter
+import com.tw.training.catkeeper.utils.ViewPagerScroller
 
 class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageChangeListener {
     /**
@@ -129,8 +127,7 @@ class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageCha
     private fun setupBanner() {
         //create ImageView for each image resource
         val mViewContainer = ArrayList<ImageView>()
-        for(i in 0 until mImageResIds.size) {
-            // Compare to XML, we cal also create View with code
+        (0 until mImageResIds.size).forEach { i ->
             val view = ImageView(this)
             view.scaleType = ImageView.ScaleType.FIT_XY
             view.setImageResource(mImageResIds[i])
