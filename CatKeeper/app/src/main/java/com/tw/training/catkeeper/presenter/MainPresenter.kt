@@ -1,8 +1,5 @@
 package com.tw.training.catkeeper.presenter
 
-/**
- * Created by yhjiang on 28/09/2017.
- */
 class MainPresenter(val view: MainContract.View) : MainContract.Presenter {
     override fun onStart() {
     }

@@ -39,8 +39,10 @@ class NearbyCatFragment : BaseFragment(), CatListAdapter.OnItemClickedListener {
     private fun initRecyclerView() {
         mCatList.layoutManager = LinearLayoutManager(activity)
         mCatList.addItemDecoration(RecycleViewDivider(
-                LinearLayoutManager.HORIZONTAL, 30,
-                ContextCompat.getColor(activity, R.color.paleGrey)))
+                LinearLayoutManager.HORIZONTAL,
+                30,
+                ContextCompat.getColor(activity,
+                R.color.paleGrey)))
     }
 
     private fun setData() {

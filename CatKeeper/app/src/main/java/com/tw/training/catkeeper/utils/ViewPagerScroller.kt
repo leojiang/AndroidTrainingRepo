@@ -35,6 +35,5 @@ class ViewPagerScroller : Scroller {
         } catch(e: Exception) {
             e.printStackTrace()
         }
-
     }
 }
