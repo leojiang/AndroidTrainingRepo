@@ -11,10 +11,7 @@ abstract class BaseFragment : Fragment() {
     private var mRootView: View? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        if(mRootView == null) {
-            mRootView = createView(inflater)
-        }
-
+        mRootView = mRootView ?: createView(inflater)
         val parent = mRootView?.parent as ViewGroup?
         parent?.removeView(mRootView)
         return mRootView
