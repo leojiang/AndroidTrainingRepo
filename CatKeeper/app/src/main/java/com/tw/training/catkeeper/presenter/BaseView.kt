@@ -1,4 +1,3 @@
 package com.tw.training.catkeeper.presenter
 
-interface BaseView<T: BasePresenter> {
-}
+interface BaseView<T>
