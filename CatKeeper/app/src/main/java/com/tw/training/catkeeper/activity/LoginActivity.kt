@@ -6,8 +6,10 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.Window
 import com.tw.training.catkeeper.R
+import com.tw.training.catkeeper.R.id.btn_login
 import com.tw.training.catkeeper.utils.AnimationUtil
 import com.tw.training.catkeeper.utils.KeyboardWatcher
+import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), KeyboardWatcher.SoftKeyboardStateListener {
     private var screenHeight = 0

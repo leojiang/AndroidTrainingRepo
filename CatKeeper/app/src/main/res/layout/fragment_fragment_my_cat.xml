@@ -9,10 +9,11 @@
         android:textSize="@dimen/text_size_12"
         android:gravity="center"
         android:paddingBottom="@dimen/ui_size_50"
-        android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/text_no_cat_reminder" />
+        android:text="@string/text_no_cat_reminder"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:src="@mipmap/cat_bg"

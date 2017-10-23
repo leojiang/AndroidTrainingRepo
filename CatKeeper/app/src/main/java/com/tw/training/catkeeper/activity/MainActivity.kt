@@ -127,10 +127,10 @@ class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageCha
     private fun setupBanner() {
         //create ImageView for each image resource
         val mViewContainer = ArrayList<ImageView>()
-        (0 until mImageResIds.size).forEach { i ->
+        mImageResIds.forEach {
             val view = ImageView(this)
             view.scaleType = ImageView.ScaleType.FIT_XY
-            view.setImageResource(mImageResIds[i])
+            view.setImageResource(it)
             mViewContainer.add(view)
         }
 
