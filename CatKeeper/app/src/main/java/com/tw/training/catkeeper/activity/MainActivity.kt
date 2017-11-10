@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(), MainContract.View, ViewPager.OnPageCha
     private val interval = 4000L
 
     /**
-     * Banner ViewPager initial postion
+     * Banner ViewPager initial position
      */
     private val viewPagerInitItem = 1000
 
